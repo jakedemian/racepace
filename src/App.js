@@ -13,7 +13,15 @@ import Distance from "./components/Distance";
 const useStyles = makeStyles({
   wrapper: {
     display: "flex",
+    flexDirection: "column",
     justifyContent: "center",
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+  tabs: {
+    marginBottom: 16,
   },
 });
 
@@ -29,7 +37,7 @@ function App() {
   return (
     <div className="App">
       <div className={classes.wrapper}>
-        <Paper>
+        <Paper className={classes.tabs}>
           <Tabs value={tab}>
             <Tab label="Pace" selected onClick={() => setTab(0)}></Tab>
             <Tab label="Time" onClick={() => setTab(1)}></Tab>
@@ -48,8 +56,8 @@ function App() {
             </FormGroup>
           </FormControl>
         </Paper>
+        <CurrentTab metric={metric} />
       </div>
-      <CurrentTab metric={metric} />
     </div>
   );
 }
