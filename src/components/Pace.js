@@ -46,23 +46,7 @@ const Pace = ({ metric }) => {
 
       const paceInSeconds = seconds / Number(distance);
 
-      const paceMinutesComponent = Math.trunc(paceInSeconds / 60);
-      const paceSecondsComponent = (paceInSeconds / 60) % 1;
-      const paceSecondsConverted = (paceSecondsComponent * 60).toFixed(1);
-
-      const paceMinutesString =
-        paceMinutesComponent === 0 ? "00" : paceMinutesComponent.toString();
-
-      let paceSecondsString;
-      if (paceSecondsConverted < 1) {
-        paceSecondsString = "0" + (paceSecondsConverted % 1);
-      } else if (paceSecondsConverted < 10) {
-        paceSecondsString = "0" + paceSecondsConverted;
-      } else {
-        paceSecondsString = paceSecondsConverted;
-      }
-      const paceString = paceMinutesString + ":" + paceSecondsString;
-      return paceString;
+      return TimeUtil.secondsToTimeString(paceInSeconds);
     } catch (e) {
       console.log("error", e);
       return "00:00";

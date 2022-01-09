@@ -45,6 +45,7 @@ const useStyles = makeStyles({
   logoWrapper: {
     display: "flex",
     justifyContent: "center",
+    marginBottom: 16,
   },
   logo: {
     width: 450,
