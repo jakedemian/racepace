@@ -55,6 +55,9 @@ const useStyles = makeStyles({
     "& .MuiSwitch-colorPrimary.Mui-checked": {
       color: primaryColor,
     },
+    "& .MuiSwitch-colorPrimary + .MuiSwitch-track": {
+      backgroundColor: "#444",
+    },
     "& .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track": {
       backgroundColor: primaryColor,
     },
