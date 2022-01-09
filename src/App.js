@@ -9,6 +9,8 @@ import { useState } from "react";
 import Pace from "./components/Pace";
 import Time from "./components/Time";
 import Distance from "./components/Distance";
+import Logo from "./assets/racepace.png";
+import { primaryColor, secondaryColor } from "./common/themeConstants";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -20,8 +22,41 @@ const useStyles = makeStyles({
     top: "50%",
     transform: "translate(-50%, -50%)",
   },
-  tabs: {
+  tabsWrapper: {
     marginBottom: 16,
+    backgroundColor: "#161616",
+    color: "white",
+    "& .MuiTabs-root": {
+      borderRadius: 4,
+    },
+    "& .MuiButtonBase-root.MuiTab-root": {
+      backgroundColor: "#111",
+    },
+    "& .MuiTabs-indicator": {
+      backgroundColor: primaryColor,
+    },
+    "& .MuiTab-textColorInherit": {
+      opacity: 1,
+    },
+    "& .MuiTab-textColorInherit.Mui-selected": {
+      opacity: 0.9,
+    },
+  },
+  logoWrapper: {
+    display: "flex",
+    justifyContent: "center",
+  },
+  logo: {
+    width: 450,
+  },
+  toggleWrapper: {
+    "& .MuiSwitch-switchBase": { color: secondaryColor },
+    "& .MuiSwitch-colorPrimary.Mui-checked": {
+      color: primaryColor,
+    },
+    "& .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track": {
+      backgroundColor: primaryColor,
+    },
   },
 });
 
@@ -37,14 +72,22 @@ function App() {
   return (
     <div className="App">
       <div className={classes.wrapper}>
-        <Paper className={classes.tabs}>
+        <div className={classes.logoWrapper}>
+          <img className={classes.logo} src={Logo} alt="Racepace Logo" />
+        </div>
+        <Paper className={classes.tabsWrapper}>
           <Tabs value={tab}>
-            <Tab label="Pace" selected onClick={() => setTab(0)}></Tab>
+            <Tab
+              className={classes.tab}
+              label="Pace"
+              selected
+              onClick={() => setTab(0)}
+            ></Tab>
             <Tab label="Time" onClick={() => setTab(1)}></Tab>
             <Tab label="Distance" onClick={() => setTab(2)}></Tab>
           </Tabs>
 
-          <FormControl component="fieldset">
+          <FormControl component="fieldset" className={classes.toggleWrapper}>
             <FormGroup aria-label="position" row>
               <FormControlLabel
                 value={metric}

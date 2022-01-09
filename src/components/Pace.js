@@ -1,11 +1,32 @@
 import { makeStyles, TextField } from "@material-ui/core";
 import React, { useState } from "react";
+import {
+  inputBackground,
+  primaryColor,
+  secondaryColor,
+} from "../common/themeConstants";
 import { TimeFormHelpers } from "../utils/TimeFormHelpers";
 import { TimeUtil } from "../utils/TimeUtil";
 
 const useStyles = makeStyles({
   paceText: {
-    fontSize: 24,
+    fontSize: 30,
+    color: "white",
+  },
+  textField: {
+    backgroundColor: inputBackground,
+    borderRadius: 4,
+    margin: "auto 4px",
+
+    "& input": {
+      color: "white",
+    },
+    "& label, & label.Mui-focused": {
+      color: primaryColor,
+    },
+    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+      borderColor: primaryColor,
+    },
   },
 });
 
@@ -62,6 +83,8 @@ const Pace = ({ metric }) => {
     <div>
       <div>
         <TextField
+          autoFocus
+          className={`${classes.textField}`}
           variant="outlined"
           placeholder={"distance"}
           onChange={(e) => setDistance(e.target.value)}
@@ -69,10 +92,12 @@ const Pace = ({ metric }) => {
           label={metric ? "kilometers" : "miles"}
         />
         <TextField
+          className={classes.textField}
           variant="outlined"
           placeholder={"time"}
           onKeyDown={formatSetTime}
           value={time}
+          label="time"
         />
       </div>
       <div className={classes.paceText}>
