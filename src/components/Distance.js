@@ -43,11 +43,7 @@ const Distance = ({ metric }) => {
           isPace={true}
         />
       </div>
-      <CalculatedResults
-        value={getDistance()}
-        label="Calculated Distance"
-        decorator={metric ? "mi" : "km"}
-      />
+      <CalculatedResults value={getDistance()} label="Calculated Distance" />
     </div>
   );
 };
