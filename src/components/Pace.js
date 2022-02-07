@@ -36,7 +36,7 @@ const Pace = ({ metric }) => {
           metric={metric}
           autoFocus={true}
         />
-        <TimeInput value={time} setValue={setTime} autoFocus={true} />
+        <TimeInput value={time} setValue={setTime} />
       </div>
       <CalculatedResults
         value={getPace()}

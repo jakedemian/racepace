@@ -31,7 +31,12 @@ const Distance = ({ metric }) => {
   return (
     <div>
       <div>
-        <TimeInput value={time} setValue={setTime} metric={metric} />
+        <TimeInput
+          value={time}
+          setValue={setTime}
+          metric={metric}
+          autoFocus={true}
+        />
         <TimeInput
           value={pace}
           setValue={setPace}
