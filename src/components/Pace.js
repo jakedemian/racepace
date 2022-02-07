@@ -1,9 +1,7 @@
-import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import { TimeUtil } from "../utils/TimeUtil";
 import DistanceInput from "./Input/DistanceInput";
 import TimeInput from "./Input/TimeInput";
-import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import CalculatedResults from "./CalulatedResults";
 
 const Pace = ({ metric }) => {

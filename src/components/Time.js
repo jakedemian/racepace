@@ -1,4 +1,3 @@
-import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
 import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
