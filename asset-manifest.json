@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/racepace/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/racepace/static/js/main.a1214370.chunk.js",
-    "main.js.map": "/racepace/static/js/main.a1214370.chunk.js.map",
+    "main.js": "/racepace/static/js/main.1319624f.chunk.js",
+    "main.js.map": "/racepace/static/js/main.1319624f.chunk.js.map",
     "runtime-main.js": "/racepace/static/js/runtime-main.5b909694.js",
     "runtime-main.js.map": "/racepace/static/js/runtime-main.5b909694.js.map",
-    "static/js/2.836818bb.chunk.js": "/racepace/static/js/2.836818bb.chunk.js",
-    "static/js/2.836818bb.chunk.js.map": "/racepace/static/js/2.836818bb.chunk.js.map",
+    "static/js/2.264afea5.chunk.js": "/racepace/static/js/2.264afea5.chunk.js",
+    "static/js/2.264afea5.chunk.js.map": "/racepace/static/js/2.264afea5.chunk.js.map",
     "static/js/3.00181f0c.chunk.js": "/racepace/static/js/3.00181f0c.chunk.js",
     "static/js/3.00181f0c.chunk.js.map": "/racepace/static/js/3.00181f0c.chunk.js.map",
     "index.html": "/racepace/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/racepace/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.836818bb.chunk.js.LICENSE.txt": "/racepace/static/js/2.836818bb.chunk.js.LICENSE.txt",
+    "static/js/2.264afea5.chunk.js.LICENSE.txt": "/racepace/static/js/2.264afea5.chunk.js.LICENSE.txt",
     "static/media/racepace.0d37b089.png": "/racepace/static/media/racepace.0d37b089.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5b909694.js",
-    "static/js/2.836818bb.chunk.js",
+    "static/js/2.264afea5.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.a1214370.chunk.js"
+    "static/js/main.1319624f.chunk.js"
   ]
 }
