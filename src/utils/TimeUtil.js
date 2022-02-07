@@ -39,8 +39,6 @@ export const TimeUtil = {
     const minutes = (hours % 1) * 60;
     const seconds = (minutes % 1) * 60;
 
-    console.log(seconds);
-
     const hoursString = Math.trunc(hours);
     const minutesString =
       minutes < 10 ? "0" + Math.trunc(minutes) : Math.trunc(minutes);

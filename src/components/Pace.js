@@ -1,38 +1,12 @@
-import { makeStyles, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import {
-  inputBackground,
-  primaryColor,
-  secondaryColor,
-} from "../common/themeConstants";
-import { TimeFormHelpers } from "../utils/TimeFormHelpers";
 import { TimeUtil } from "../utils/TimeUtil";
-
-const useStyles = makeStyles({
-  paceText: {
-    fontSize: 30,
-    color: "white",
-  },
-  textField: {
-    backgroundColor: inputBackground,
-    borderRadius: 4,
-    margin: "auto 4px",
-
-    "& input": {
-      color: "white",
-    },
-    "& label, & label.Mui-focused": {
-      color: primaryColor,
-    },
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: primaryColor,
-    },
-  },
-});
+import DistanceInput from "./Input/DistanceInput";
+import TimeInput from "./Input/TimeInput";
+import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
+import CalculatedResults from "./CalulatedResults";
 
 const Pace = ({ metric }) => {
-  const classes = useStyles();
-
   const [time, setTime] = useState("00:00");
   const [distance, setDistance] = useState("");
 
@@ -53,41 +27,22 @@ const Pace = ({ metric }) => {
     }
   };
 
-  const formatSetTime = (e) => {
-    if (e.key === "Backspace") {
-      setTime(TimeFormHelpers.handleBackspaceEntry(time));
-    }
-
-    if (/[0-9]/.test(e.key)) {
-      setTime(TimeFormHelpers.handleNumericEntry(time, e.key));
-    }
-  };
-
   return (
     <div>
       <div>
-        <TextField
-          autoFocus
-          className={`${classes.textField}`}
-          variant="outlined"
-          placeholder={"distance"}
-          onChange={(e) => setDistance(e.target.value)}
+        <DistanceInput
           value={distance}
-          label={metric ? "kilometers" : "miles"}
+          setValue={setDistance}
+          metric={metric}
+          autoFocus={true}
         />
-        <TextField
-          className={classes.textField}
-          variant="outlined"
-          placeholder={"time"}
-          onKeyDown={formatSetTime}
-          value={time}
-          label="time"
-        />
+        <TimeInput value={time} setValue={setTime} autoFocus={true} />
       </div>
-      <div className={classes.paceText}>
-        {getPace()}
-        {metric ? " /km" : " /mi"}
-      </div>
+      <CalculatedResults
+        value={getPace()}
+        label="Calculated Pace"
+        decorator={metric ? "/km" : "/mi"}
+      />
     </div>
   );
 };

@@ -1,37 +1,12 @@
-import { makeStyles, TextField } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import React, { useState } from "react";
-import {
-  inputBackground,
-  primaryColor,
-  secondaryColor,
-} from "../common/themeConstants";
-import { TimeFormHelpers } from "../utils/TimeFormHelpers";
+import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
-
-const useStyles = makeStyles({
-  paceText: {
-    fontSize: 30,
-    color: "white",
-  },
-  textField: {
-    backgroundColor: inputBackground,
-    borderRadius: 4,
-    margin: "auto 4px",
-
-    "& input": {
-      color: "white",
-    },
-    "& label, & label.Mui-focused": {
-      color: primaryColor,
-    },
-    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: primaryColor,
-    },
-  },
-});
+import CalculatedResults from "./CalulatedResults";
+import TimeInput from "./Input/TimeInput";
 
 const Distance = ({ metric }) => {
-  const classes = useStyles();
+  const classes = useCalculatedTextStyles();
 
   const [pace, setPace] = useState("00:00");
   const [time, setTime] = useState("00:00");
@@ -53,38 +28,22 @@ const Distance = ({ metric }) => {
     }
   };
 
-  const formatSetTime = (e, val, settingFunc) => {
-    if (e.key === "Backspace") {
-      settingFunc(TimeFormHelpers.handleBackspaceEntry(val));
-    }
-
-    if (/[0-9]/.test(e.key)) {
-      settingFunc(TimeFormHelpers.handleNumericEntry(val, e.key));
-    }
-  };
-
   return (
     <div>
       <div>
-        <TextField
-          autoFocus
-          className={`${classes.textField}`}
-          onKeyDown={(e) => formatSetTime(e, time, setTime)}
-          variant="outlined"
-          placeholder={"time"}
-          value={time}
-          label={"time"}
-        />
-        <TextField
-          className={classes.textField}
-          variant="outlined"
-          placeholder={"pace"}
-          onKeyDown={(e) => formatSetTime(e, pace, setPace)}
+        <TimeInput value={time} setValue={setTime} metric={metric} />
+        <TimeInput
           value={pace}
-          label="pace"
+          setValue={setPace}
+          metric={metric}
+          isPace={true}
         />
       </div>
-      <div className={classes.paceText}>{getDistance()}</div>
+      <CalculatedResults
+        value={getDistance()}
+        label="Calculated Distance"
+        decorator={metric ? "mi" : "km"}
+      />
     </div>
   );
 };
