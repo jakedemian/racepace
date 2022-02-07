@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/racepace/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/racepace/static/js/main.b2922a8a.chunk.js",
-    "main.js.map": "/racepace/static/js/main.b2922a8a.chunk.js.map",
+    "main.js": "/racepace/static/js/main.a1214370.chunk.js",
+    "main.js.map": "/racepace/static/js/main.a1214370.chunk.js.map",
     "runtime-main.js": "/racepace/static/js/runtime-main.5b909694.js",
     "runtime-main.js.map": "/racepace/static/js/runtime-main.5b909694.js.map",
     "static/js/2.836818bb.chunk.js": "/racepace/static/js/2.836818bb.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.5b909694.js",
     "static/js/2.836818bb.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.b2922a8a.chunk.js"
+    "static/js/main.a1214370.chunk.js"
   ]
 }
