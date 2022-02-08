@@ -1,6 +1,6 @@
 import "./App.css";
 import { makeStyles } from "@material-ui/core/styles";
-import { Paper, Tab, Tabs } from "@material-ui/core";
+import { Paper, Tab, Tabs, useMediaQuery } from "@material-ui/core";
 import Switch from "@material-ui/core/Switch";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -11,6 +11,7 @@ import Time from "./components/Time";
 import Distance from "./components/Distance";
 import Logo from "./assets/racepace.png";
 import { primaryColor, secondaryColor } from "./common/themeConstants";
+import getClass from "./common/styles/getClass";
 
 const useStyles = makeStyles({
   wrapper: {
@@ -21,6 +22,22 @@ const useStyles = makeStyles({
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
+
+    // "&--mobile": {
+    //   width: 550,
+    // },
+  },
+  logoWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: 16,
+  },
+  logo: {
+    width: 450,
+
+    "&--mobile": {
+      width: 250,
+    },
   },
   tabsWrapper: {
     marginBottom: 16,
@@ -41,15 +58,12 @@ const useStyles = makeStyles({
     "& .MuiTab-textColorInherit.Mui-selected": {
       opacity: 0.9,
     },
+    "&--mobile": {
+      margin: "auto",
+      marginBottom: 32,
+    },
   },
-  logoWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: 16,
-  },
-  logo: {
-    width: 450,
-  },
+
   toggleWrapper: {
     "& .MuiSwitch-switchBase": { color: secondaryColor },
     "& .MuiSwitch-colorPrimary.Mui-checked": {
@@ -66,6 +80,8 @@ const useStyles = makeStyles({
 
 function App() {
   const classes = useStyles();
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   const [metric, setMetric] = useState(false);
   const [tab, setTab] = useState(0);
 
@@ -75,11 +91,15 @@ function App() {
 
   return (
     <div className="App">
-      <div className={classes.wrapper}>
+      <div className={getClass(classes.wrapper, isMobile)}>
         <div className={classes.logoWrapper}>
-          <img className={classes.logo} src={Logo} alt="Racepace Logo" />
+          <img
+            className={getClass(classes.logo, isMobile)}
+            src={Logo}
+            alt="Racepace Logo"
+          />
         </div>
-        <Paper className={classes.tabsWrapper}>
+        <Paper className={getClass(classes.tabsWrapper, isMobile)}>
           <Tabs value={tab}>
             <Tab
               className={classes.tab}

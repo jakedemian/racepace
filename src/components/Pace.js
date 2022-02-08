@@ -3,6 +3,7 @@ import { TimeUtil } from "../utils/TimeUtil";
 import DistanceInput from "./Input/DistanceInput";
 import TimeInput from "./Input/TimeInput";
 import CalculatedResults from "./CalulatedResults";
+import InputWrapper from "./Input/InputWrapper";
 
 const Pace = ({ metric }) => {
   const [time, setTime] = useState("00:00");
@@ -27,7 +28,7 @@ const Pace = ({ metric }) => {
 
   return (
     <div>
-      <div>
+      <InputWrapper>
         <DistanceInput
           value={distance}
           setValue={setDistance}
@@ -35,7 +36,7 @@ const Pace = ({ metric }) => {
           autoFocus={true}
         />
         <TimeInput value={time} setValue={setTime} />
-      </div>
+      </InputWrapper>
       <CalculatedResults
         value={getPace()}
         label="Calculated Pace"

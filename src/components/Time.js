@@ -3,6 +3,7 @@ import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
 import CalculatedResults from "./CalulatedResults";
 import DistanceInput from "./Input/DistanceInput";
+import InputWrapper from "./Input/InputWrapper";
 import TimeInput from "./Input/TimeInput";
 
 const Time = ({ metric }) => {
@@ -30,7 +31,7 @@ const Time = ({ metric }) => {
 
   return (
     <div>
-      <div>
+      <InputWrapper>
         <DistanceInput
           value={distance}
           setValue={setDistance}
@@ -43,7 +44,7 @@ const Time = ({ metric }) => {
           metric={metric}
           isPace={true}
         />
-      </div>
+      </InputWrapper>
       <CalculatedResults value={getTime()} label="Calculated Time" />
     </div>
   );

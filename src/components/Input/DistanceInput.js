@@ -1,9 +1,10 @@
-import { TextField } from "@material-ui/core";
+import { TextField, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import processDistanceInput from "../../common/processDistanceInput";
 import useTextInputStyles from "../../common/styles/useTextInputStyles";
 
 const DistanceInput = (props) => {
+  const isMobile = useMediaQuery("(max-width:600px)");
   const { value, setValue, metric, autoFocus } = props;
   const classes = useTextInputStyles();
 
@@ -21,12 +22,13 @@ const DistanceInput = (props) => {
     <>
       <TextField
         autoFocus={autoFocus || false}
-        className={`${classes.textInput}`}
+        className={classes.textInput}
         variant="outlined"
         placeholder={"distance"}
         onKeyDown={onMilesChanged}
         value={value}
         label={metric ? "kilometers" : "miles"}
+        style={{ marginBottom: isMobile ? "16px" : null }}
       />
     </>
   );

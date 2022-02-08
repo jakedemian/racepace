@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
 import CalculatedResults from "./CalulatedResults";
+import InputWrapper from "./Input/InputWrapper";
 import TimeInput from "./Input/TimeInput";
 
 const Distance = ({ metric }) => {
@@ -29,7 +30,7 @@ const Distance = ({ metric }) => {
 
   return (
     <div>
-      <div>
+      <InputWrapper>
         <TimeInput
           value={time}
           setValue={setTime}
@@ -42,7 +43,7 @@ const Distance = ({ metric }) => {
           metric={metric}
           isPace={true}
         />
-      </div>
+      </InputWrapper>
       <CalculatedResults value={getDistance()} label="Calculated Distance" />
     </div>
   );
