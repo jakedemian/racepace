@@ -3,24 +3,26 @@ import React from "react";
 import getClass from "../../common/styles/getClass";
 
 const useStyles = makeStyles({
-  inputWrapper: {
+  tabContentWrapper: {
+    display: "flex",
+    flexDirection: "column",
+
     "&--mobile": {
       display: "flex",
-      flexDirection: "column",
-      marginTop: 16,
+      flexDirection: "column-reverse",
     },
   },
 });
 
-const InputWrapper = (props) => {
+const TabContentWrapper = (props) => {
   const classes = useStyles();
   const isMobile = useMediaQuery("(max-width:600px)");
 
   return (
-    <div className={getClass(classes.inputWrapper, isMobile)}>
+    <div className={getClass(classes.tabContentWrapper, isMobile)}>
       {props.children}
     </div>
   );
 };
 
-export default InputWrapper;
+export default TabContentWrapper;

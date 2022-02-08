@@ -11,6 +11,9 @@ const useCalculatedTextStyles = makeStyles({
     "& .calculatedText--label": {
       fontSize: 16,
     },
+    "&--mobile": {
+      marginTop: 0,
+    },
   },
 });
 

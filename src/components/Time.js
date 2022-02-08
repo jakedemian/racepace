@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
-import CalculatedResults from "./CalulatedResults";
+import CalculatedResults from "./CalculatedResults";
 import DistanceInput from "./Input/DistanceInput";
 import InputWrapper from "./Input/InputWrapper";
+import TabContentWrapper from "./Input/TabContentWrapper";
 import TimeInput from "./Input/TimeInput";
 
 const Time = ({ metric }) => {
-  const classes = useCalculatedTextStyles();
-
   const [pace, setPace] = useState("00:00");
   const [distance, setDistance] = useState("");
 
@@ -30,7 +29,7 @@ const Time = ({ metric }) => {
   };
 
   return (
-    <div>
+    <TabContentWrapper>
       <InputWrapper>
         <DistanceInput
           value={distance}
@@ -46,7 +45,7 @@ const Time = ({ metric }) => {
         />
       </InputWrapper>
       <CalculatedResults value={getTime()} label="Calculated Time" />
-    </div>
+    </TabContentWrapper>
   );
 };
 

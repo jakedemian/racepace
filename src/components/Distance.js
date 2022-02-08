@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import useCalculatedTextStyles from "../common/styles/useCalculatedTextStyles";
 import { TimeUtil } from "../utils/TimeUtil";
-import CalculatedResults from "./CalulatedResults";
+import CalculatedResults from "./CalculatedResults";
 import InputWrapper from "./Input/InputWrapper";
+import TabContentWrapper from "./Input/TabContentWrapper";
 import TimeInput from "./Input/TimeInput";
 
 const Distance = ({ metric }) => {
-  const classes = useCalculatedTextStyles();
-
   const [pace, setPace] = useState("00:00");
   const [time, setTime] = useState("00:00");
 
@@ -18,18 +16,18 @@ const Distance = ({ metric }) => {
       const timeSeconds = TimeUtil.getTimeInSeconds(time);
 
       if (Number(timeSeconds) === 0 || paceSeconds === 0) {
-        return `-- ${units}`;
+        return `0 ${units}`;
       }
 
       return `${Number(timeSeconds / paceSeconds).toFixed(2)} ${units}`;
     } catch (e) {
       console.log("error", e);
-      return `-- ${units}`;
+      return `0 ${units}`;
     }
   };
 
   return (
-    <div>
+    <TabContentWrapper>
       <InputWrapper>
         <TimeInput
           value={time}
@@ -45,7 +43,7 @@ const Distance = ({ metric }) => {
         />
       </InputWrapper>
       <CalculatedResults value={getDistance()} label="Calculated Distance" />
-    </div>
+    </TabContentWrapper>
   );
 };
 

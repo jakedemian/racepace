@@ -56,7 +56,7 @@ const useStyles = makeStyles({
     },
     "&--mobile": {
       margin: "auto",
-      marginBottom: 32,
+      marginBottom: 16,
     },
   },
 

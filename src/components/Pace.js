@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { TimeUtil } from "../utils/TimeUtil";
 import DistanceInput from "./Input/DistanceInput";
 import TimeInput from "./Input/TimeInput";
-import CalculatedResults from "./CalulatedResults";
+import CalculatedResults from "./CalculatedResults";
 import InputWrapper from "./Input/InputWrapper";
+import TabContentWrapper from "./Input/TabContentWrapper";
 
 const Pace = ({ metric }) => {
   const [time, setTime] = useState("00:00");
@@ -27,7 +28,7 @@ const Pace = ({ metric }) => {
   };
 
   return (
-    <div>
+    <TabContentWrapper>
       <InputWrapper>
         <DistanceInput
           value={distance}
@@ -42,7 +43,7 @@ const Pace = ({ metric }) => {
         label="Calculated Pace"
         decorator={metric ? "/km" : "/mi"}
       />
-    </div>
+    </TabContentWrapper>
   );
 };
 
