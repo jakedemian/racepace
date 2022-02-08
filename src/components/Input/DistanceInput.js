@@ -25,7 +25,7 @@ const DistanceInput = (props) => {
         className={classes.textInput}
         variant="outlined"
         placeholder={"distance"}
-        onKeyDown={onMilesChanged}
+        onChange={(e) => setValue(e.target.value)}
         value={value}
         label={metric ? "kilometers" : "miles"}
         style={{ marginBottom: isMobile ? "16px" : null }}

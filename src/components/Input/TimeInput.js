@@ -9,12 +9,13 @@ const TimeInput = (props) => {
   const classes = useTextInputStyles();
 
   const formatSetTime = (e) => {
-    if (e.key === "Backspace") {
+    const key = e.nativeEvent.data;
+    if (key === null) {
       setValue((t) => TimeFormHelpers.handleBackspaceEntry(t));
     }
 
-    if (/[0-9]/.test(e.key)) {
-      setValue((t) => TimeFormHelpers.handleNumericEntry(t, e.key));
+    if (/[0-9]/.test(key)) {
+      setValue((t) => TimeFormHelpers.handleNumericEntry(t, key));
     }
   };
 
@@ -25,7 +26,7 @@ const TimeInput = (props) => {
         className={classes.textInput}
         variant="outlined"
         placeholder={isPace ? "pace" : "time"}
-        onKeyDown={formatSetTime}
+        onChange={formatSetTime}
         value={value}
         label={isPace ? "pace" : "time"}
         style={{ marginBottom: isMobile ? "16px" : null }}
