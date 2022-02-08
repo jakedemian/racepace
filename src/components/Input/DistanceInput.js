@@ -1,5 +1,5 @@
 import { TextField, useMediaQuery } from "@material-ui/core";
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import processDistanceInput from "../../common/processDistanceInput";
 import useTextInputStyles from "../../common/styles/useTextInputStyles";
 
@@ -7,32 +7,25 @@ const DistanceInput = (props) => {
   const isMobile = useMediaQuery("(max-width:600px)");
   const { value, setValue, metric, autoFocus } = props;
   const classes = useTextInputStyles();
-  const ref = useRef(null);
 
-  const onKeyPress = (e) => {
-    const key = processDistanceInput(e.key);
+  const onMilesChanged = (e) => {
+    const numberKeyPressed = processDistanceInput(e.key);
 
-    if (key === "Backspace") {
+    if (numberKeyPressed === "Backspace") {
       setValue((val) => val.substring(0, val.length - 1));
-    } else if (key === "Enter") {
-      ref.current.querySelector("input").blur();
-    } else if (key) {
-      setValue((val) => (val += key));
+    } else if (numberKeyPressed) {
+      setValue((val) => (val += numberKeyPressed));
     }
   };
-
-  useEffect(() => {
-    ref.current.addEventListener("keydown", onKeyPress);
-  }, []);
 
   return (
     <>
       <TextField
-        ref={ref}
         autoFocus={autoFocus || false}
         className={classes.textInput}
         variant="outlined"
         placeholder={"distance"}
+        onChange={(e) => setValue(e.target.value)}
         value={value}
         label={metric ? "kilometers" : "miles"}
         style={{ marginBottom: isMobile ? "16px" : null }}
