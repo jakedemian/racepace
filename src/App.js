@@ -22,10 +22,6 @@ const useStyles = makeStyles({
     left: "50%",
     top: "50%",
     transform: "translate(-50%, -50%)",
-
-    // "&--mobile": {
-    //   width: 550,
-    // },
   },
   logoWrapper: {
     display: "flex",
@@ -53,10 +49,10 @@ const useStyles = makeStyles({
       backgroundColor: primaryColor,
     },
     "& .MuiTab-textColorInherit": {
-      opacity: 1,
+      opacity: 0.5,
     },
     "& .MuiTab-textColorInherit.Mui-selected": {
-      opacity: 0.9,
+      opacity: 1,
     },
     "&--mobile": {
       margin: "auto",
@@ -101,12 +97,7 @@ function App() {
         </div>
         <Paper className={getClass(classes.tabsWrapper, isMobile)}>
           <Tabs value={tab}>
-            <Tab
-              className={classes.tab}
-              label="Pace"
-              selected
-              onClick={() => setTab(0)}
-            ></Tab>
+            <Tab label="Pace" selected onClick={() => setTab(0)}></Tab>
             <Tab label="Time" onClick={() => setTab(1)}></Tab>
             <Tab label="Distance" onClick={() => setTab(2)}></Tab>
           </Tabs>
