@@ -10,12 +10,14 @@ const DistanceInput = (props) => {
   const ref = useRef(null);
 
   const onKeyPress = (e) => {
-    const numberKeyPressed = processDistanceInput(e.key);
+    const key = processDistanceInput(e.key);
 
-    if (numberKeyPressed === "Backspace") {
+    if (key === "Backspace") {
       setValue((val) => val.substring(0, val.length - 1));
-    } else if (numberKeyPressed) {
-      setValue((val) => (val += numberKeyPressed));
+    } else if (key === "Enter") {
+      ref.current.querySelector("input").blur();
+    } else if (key) {
+      setValue((val) => (val += key));
     }
   };
 

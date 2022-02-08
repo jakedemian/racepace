@@ -1,5 +1,5 @@
 const processDistanceInput = (key) => {
-  if (key === "Backspace") {
+  if (key === "Backspace" || key === "Enter") {
     return key;
   }
 

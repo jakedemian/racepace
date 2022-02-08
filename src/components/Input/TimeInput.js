@@ -11,8 +11,13 @@ const TimeInput = (props) => {
 
   const onKeyPress = (e) => {
     const key = e.key;
-    if (key === null) {
+    console.log(key);
+    if (key === "Backspace") {
       setValue((t) => TimeFormHelpers.handleBackspaceEntry(t));
+    }
+
+    if (key === "Enter") {
+      ref.current.querySelector("input").blur();
     }
 
     if (/[0-9]/.test(key)) {
