@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/racepace/static/css/main.6dae4b72.chunk.css",
-    "main.js": "/racepace/static/js/main.58e5d06c.chunk.js",
-    "main.js.map": "/racepace/static/js/main.58e5d06c.chunk.js.map",
+    "main.js": "/racepace/static/js/main.03f37bfc.chunk.js",
+    "main.js.map": "/racepace/static/js/main.03f37bfc.chunk.js.map",
     "runtime-main.js": "/racepace/static/js/runtime-main.31a5cfb2.js",
     "runtime-main.js.map": "/racepace/static/js/runtime-main.31a5cfb2.js.map",
-    "static/js/2.23b1f29a.chunk.js": "/racepace/static/js/2.23b1f29a.chunk.js",
-    "static/js/2.23b1f29a.chunk.js.map": "/racepace/static/js/2.23b1f29a.chunk.js.map",
+    "static/js/2.207719d1.chunk.js": "/racepace/static/js/2.207719d1.chunk.js",
+    "static/js/2.207719d1.chunk.js.map": "/racepace/static/js/2.207719d1.chunk.js.map",
     "static/js/3.82ec7002.chunk.js": "/racepace/static/js/3.82ec7002.chunk.js",
     "static/js/3.82ec7002.chunk.js.map": "/racepace/static/js/3.82ec7002.chunk.js.map",
     "index.html": "/racepace/index.html",
     "static/css/main.6dae4b72.chunk.css.map": "/racepace/static/css/main.6dae4b72.chunk.css.map",
-    "static/js/2.23b1f29a.chunk.js.LICENSE.txt": "/racepace/static/js/2.23b1f29a.chunk.js.LICENSE.txt",
+    "static/js/2.207719d1.chunk.js.LICENSE.txt": "/racepace/static/js/2.207719d1.chunk.js.LICENSE.txt",
     "static/media/racepace.0d37b089.png": "/racepace/static/media/racepace.0d37b089.png"
   },
   "entrypoints": [
     "static/js/runtime-main.31a5cfb2.js",
-    "static/js/2.23b1f29a.chunk.js",
+    "static/js/2.207719d1.chunk.js",
     "static/css/main.6dae4b72.chunk.css",
-    "static/js/main.58e5d06c.chunk.js"
+    "static/js/main.03f37bfc.chunk.js"
   ]
 }
