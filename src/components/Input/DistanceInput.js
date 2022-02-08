@@ -1,4 +1,4 @@
-import { TextField, useMediaQuery } from "@material-ui/core";
+import { InputAdornment, TextField, useMediaQuery } from "@material-ui/core";
 import React from "react";
 import processDistanceInput from "../../common/processDistanceInput";
 import useTextInputStyles from "../../common/styles/useTextInputStyles";
@@ -29,6 +29,13 @@ const DistanceInput = (props) => {
         value={value}
         label={metric ? "kilometers" : "miles"}
         style={{ marginBottom: isMobile ? "16px" : null }}
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <span style={{ color: "white" }}>{metric ? "km" : "mi"}</span>
+            </InputAdornment>
+          ),
+        }}
       />
     </>
   );
